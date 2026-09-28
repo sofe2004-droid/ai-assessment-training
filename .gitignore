@@ -1,0 +1,8 @@
+node_modules/
+.vercel/
+*.pdf
+*.hwpx
+*.tgz
+backup-*.json
+.DS_Store
+Thumbs.db
