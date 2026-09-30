@@ -57,7 +57,7 @@
   function slideHTML(sl) {
     var ses = W.sessions[sl.ses];
     var hint = sl.act ? '<div class="act-hint">✍️ 아래 입력 패널에 내 활동 내용을 작성하세요 <span class="muted small" style="font-weight:400">(자동 저장됩니다)</span></div>' : '';
-    return '<article class="slide ' + (sl.cls || '') + '" id="slide"><div class="slide-bar"><span>' + esc(ses.short) + '</span><span>· 교안 ' + sl.n + '쪽</span><span class="sp"></span><button class="btn sm" data-do="full" title="슬라이드 전체 화면">⛶ 전체 화면</button></div>' +
+    return '<article class="slide ' + (sl.cls || '') + '" id="slide"><div class="slide-bar"><span>' + esc(ses.short) + '</span><span>· 교안 ' + (sl.pageLabel || sl.n) + '쪽</span><span class="sp"></span><button class="btn sm" data-do="full" title="슬라이드 전체 화면">⛶ 전체 화면</button></div>' +
       '<div class="slide-body">' + (sl.kicker ? '<div class="slide-kicker">' + sl.kicker + '</div>' : '') + '<h2 class="slide-title">' + sl.title + '</h2>' +
       '<div class="blocks">' + sl.blocks.map(blockHTML).join('') + '</div>' + hint + '</div></article>';
   }
@@ -276,7 +276,7 @@
       html += '<div class="side-group open" data-ses="' + s.no + '"><button class="side-head" data-do="toggle"><span class="caret">▶</span><span>' + esc(s.no === 0 ? '오리엔테이션' : s.name.split(' · ')[0] + ' · ' + s.name.split(' · ')[1]) + '</span><span class="pct" data-pct="' + s.no + '"></span></button>' +
         '<div class="side-bar"><i data-bar="' + s.no + '"></i></div><div class="side-list">' +
         list.map(function (x) {
-          return '<button class="side-item" data-go="' + x.n + '" data-n="' + x.n + '"><span class="num">' + x.n + '</span><span class="t">' + x.title.replace(/<[^>]+>/g, '') + '</span>' + (x.act ? '<span class="dot" data-dot="' + x.n + '">○</span>' : '') + '</button>';
+          return '<button class="side-item" data-go="' + x.n + '" data-n="' + x.n + '"><span class="num">' + (x.pageLabel || x.n) + '</span><span class="t">' + x.title.replace(/<[^>]+>/g, '') + '</span>' + (x.act ? '<span class="dot" data-dot="' + x.n + '">○</span>' : '') + '</button>';
         }).join('') + '</div></div>';
     });
     html += '<div class="side-extra"><button class="btn primary" data-go="export">📄 결과물 문서 저장</button><button class="btn" data-do="backup">💾 백업 파일 저장</button><button class="btn" data-go="start">👤 내 정보 · 백업 불러오기</button></div>';
