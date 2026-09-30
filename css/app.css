@@ -140,6 +140,9 @@ table.tbl { width: 100%; border-collapse: collapse; font-size: .98rem; }
 .act-hint { display: flex; align-items: center; gap: 10px; margin-top: 20px; padding: 10px 14px; border: 2px dashed var(--accent); border-radius: 10px; background: var(--accent-bg); color: var(--accent); font-weight: 700; }
 .act-hint a { color: inherit; }
 .qr { display: grid; place-items: center; text-align: center; gap: 12px; padding: 20px 0; }
+.slide-fig { margin: 0; }
+.slide-fig img { display: block; width: 100%; height: auto; border: 1px solid var(--line); border-radius: 10px; box-shadow: var(--shadow); }
+.slide-fig figcaption { margin-top: 8px; text-align: center; color: var(--muted); font-size: .9rem; }
 .qr img { width: 220px; height: 220px; image-rendering: pixelated; border: 1px solid var(--line); padding: 8px; background: #fff; border-radius: 8px; }
 
 /* ---------- activity panel ---------- */

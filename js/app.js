@@ -45,6 +45,7 @@
       }).join('') + '</div>';
       case 'callout': return '<div class="callout ' + b.tone + '">' + b.html + '</div>';
       case 'html': return b.html;
+      case 'img': return '<figure class="slide-fig"><img src="' + b.src + '" alt="' + esc(b.alt || '') + '" loading="lazy">' + (b.cap ? '<figcaption>' + b.cap + '</figcaption>' : '') + '</figure>';
       case 'survey':
         var u = (window.CONFIG || {}).surveyUrl;
         return '<div class="qr"><p class="lead">오늘 연수는 어떠셨나요?<br>더 나은 연수 운영을 위해 만족도 조사에 참여 부탁드립니다.</p>' +

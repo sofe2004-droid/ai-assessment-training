@@ -10,6 +10,7 @@
   var TBL = function (head, rows) { return { k: 'table', head: head, rows: rows }; };
   var CMP = function (a, b) { return { k: 'compare', a: a, b: b }; };
   var CO = function (html, tone) { return { k: 'callout', html: html, tone: tone || '' }; };
+  var IMG = function (src, alt, cap) { return { k: 'img', src: src, alt: alt, cap: cap || '' }; };
   var TIME = function (html) { return { k: 'callout', html: '<span class="timer-tag">활동 운영</span>' + html, tone: 'note' }; };
 
   /* ---------- 오리엔테이션 ---------- */
@@ -54,7 +55,9 @@
   S(8, 1, '두 학생, 같은 결과물이라면?', [
     CMP({ tag: '학생 A', h: '학생 A', desc: 'AI 결과를 거의 그대로 사용', items: ['초안·입력 프롬프트 흔적 없음', '수정 흔적 없음', '본인 판단 기록 없음'] },
         { tag: '학생 B', h: '학생 B', desc: 'AI 결과를 검토하고 오류를 수정', items: ['초안·중간 산출물 제출', '채택·불채택 이유 명시', '수정 이유 본문 기록'] }),
-    L('최종 결과물은 비슷하지만 배움의 과정은 다르다 — 무엇을 평가해야 공정할까?', 'center')
+    L('최종 결과물은 비슷하지만 배움의 과정은 다르다 — 무엇을 평가해야 공정할까?', 'center'),
+    CO('<b>실제 고등학교 수행평가 사례</b> 같은 주제(청소년 스마트폰 중독)의 보고서를 AI 미사용 학생과 AI를 적극 활용한 학생이 각각 어떻게 완성했는지 비교합니다.', 'note'),
+    IMG('assets/img/ai-vs-noai-example.webp', 'A학생(AI 미사용)은 경험을 바탕으로 원인·해결방안·결론을 간단히 정리했고 자료·근거는 제한적이다. B학생(AI 적극 활용)은 AI와의 대화로 통계 자료를 수집·검증하고, 개인·환경·콘텐츠·사회 네 관점의 원인 분석과 차원별 해결방안을 제시했으며 AI 제안을 그대로 쓰지 않고 검증·재구성한 과정과 성찰을 남겼다.', 'A학생(AI 미사용) vs B학생(AI 적극 활용) · 같은 주제의 수행평가 보고서 비교')
   ]);
   S(9, 1, '교육부 방향 · 일률적 금지보다 명확한 기준', [
     CARDS(3, [
